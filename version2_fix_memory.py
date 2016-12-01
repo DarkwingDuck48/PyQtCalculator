@@ -22,6 +22,7 @@ class Main(QWidget):
         self.stepDigit = 0
         self.operation = ''
         self.setWindowIcon(QIcon('icon.png'))
+        self.setWindowTitle('Lab№2 ABaryshnikova')
         grid = QGridLayout(self)
         self.display = QLineEdit('0')
         self.display.setAlignment(Qt.AlignRight)
