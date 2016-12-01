@@ -61,11 +61,11 @@ class Main(QWidget):
             # Показать число в памяти
         butn_m_show = MyButton('MS',self.memoryplay)
         grid.addWidget(butn_m_show,4,5)
-            # Очистить память
+            # Добавить в память
         butn_m_addtomemory = MyButton('MR', self.memoryplay)
         grid.addWidget(butn_m_addtomemory, 3, 5)
 
-        # ПАМЯТЬ!!!!!!!!!!!!!!
+        # важная переменная
         self.calc_memory = 0
 
         digits = 10
@@ -134,6 +134,8 @@ class Main(QWidget):
         self.currentDigit.clear()
         self.currentDigitInt = 0
         self.stepDigit = 0
+        self.calc_memory = 0
+        self.label_m.setVisible(False)
         self.display.setText('0')
 
     def changeSign(self):
@@ -243,9 +245,15 @@ class Main(QWidget):
             self.calc_memory = 0
         elif self.sender().text() == 'M+':
             self.label_m.setVisible(True)
-            self.calc_memory = float(self.display.displayText())
-        elif self.sender().text() == 'MR':
+            self.calc_memory += float(self.display.displayText())
+        elif self.sender().text() == 'M-':
+            self.label_m.setVisible(True)
+            self.calc_memory -= float(self.display.displayText())
+        elif self.sender().text() == 'MS':
             self.display.setText(str(self.calc_memory))
+        elif self.sender().text() == 'MR':
+            self.label_m.setVisible(True)
+            self.calc_memory = float(self.display.displayText())
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
