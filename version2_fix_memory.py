@@ -4,12 +4,14 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont, QIcon
 from PyQt5.QtWidgets import QWidget, QApplication, QGridLayout, QPushButton, QLineEdit, QSizePolicy,QLabel
 
+
 class MyButton(QPushButton):
 
     def __init__(self, text, connect, parent=None):
         super().__init__(text, parent)
         self.clicked.connect(connect)
         self.setFixedSize(40,35)
+
 
 class Main(QWidget):
 
@@ -47,7 +49,7 @@ class Main(QWidget):
         self.label_m = QLabel('M')
         self.label_m.setFont(font)
         self.label_m.setVisible(False)
-        grid.addWidget(self.label_m,0,6)
+        grid.addWidget(self.label_m, 0, 6)
 
         # Кнопки памяти
             # Сумма число в памяти + в текст боксе
